@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SRM Academic Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<body>
+  <div class="welcome-section">
+    <h1>SRM Academic Calculator</h1>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<p><strong><span id="typed-text"></span></strong></p>
+
+  </div>
+
+  <div class="container">
+    <div class="tab-container">
+      <button class="tab active" onclick="openTab('gpa-calculator')">GPA Calculator</button>
+      <button class="tab" onclick="openTab('cgpa-calculator')">CGPA Calculator</button>
+      <button class="tab" onclick="openTab('grade-predictor')">Grade Predictor</button>
+    </div>
+    
+
+    <!-- GPA Calculator -->
+ <div id="gpa-calculator" class="tab-content active">
+  <div class="card">
+    <h2>GPA Calculator</h2>
+    
+    
+    <form id="gpa-form">
+      <div class="form-group">
+        <label for="course">Select Course:</label>
+        <select id="course" required>
+          <option value="">-- Select Course --</option>
+          <option value="CSE">Computer Science Engineering (CSE)</option>
+          <option value="Cybersecurity">Cyber Security (CS)</option>        
+          <option value="AI-ML">Artificial Intelligence & Machine Learning (AI-ML)</option>
+          <option value="Big Data Analytics">Big Data Analytics</option>
+          <option value="IT">Information Technology (IT)</option>
+          <option value="ECE">Electronics & Communication Engineering (ECE)</option>
+          <option value="Biotechnology">Biotechnology</option>
+          <option value="EEE">Electrical & Electronics Engineering (EEE)</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label id="semLabel" style="display:none;">Select Semester:</label>
+        <select id="semester" style="display:none;" required>
+          <option value="">-- Select Semester --</option>
+        </select>
+      </div>
+      
+      <table id="subjectsTable" style="display:none;">
+        <thead>
+          <tr>
+            <th>Subject Name</th>
+            <th>Credits</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody id="subjectsBody"></tbody>
+      </table>
+      
+      <div class="buttons">
+        <button type="button" id="calcBtn" style="display:none;" class="btn btn-primary">Calculate GPA</button>
+      </div>
+      
+      <div class="result" id="result"></div>
+    </form>
+  </div>
+</div>
+
+    
+    <!-- Grade Predictor -->
+    <div id="grade-predictor" class="tab-content">
+      <div class="card">
+        <h2>SRM Grade Predictor</h2>
+
+        <form>
+          <label for="internal">Internal Marks (out of 60):</label>
+          <input type="number" id="internal" min="0" max="60" placeholder="e.g. 45" class="course" />
+
+          <label for="target">Select Desired Grade:</label>
+          <select id="target" class="course">
+            <option value="91">O (91+)</option>
+            <option value="81">A+ (81+)</option>
+            <option value="71">A (71+)</option>
+            <option value="61">B+ (61+)</option>
+            <option value="56">B (56+)</option>
+            <option value="50">C (50+)</option>
+            <option value="40">P (40+)</option>
+          </select>
+
+          <div class="buttons">
+            <button type="button" onclick="calculateGrade()" class="btn btn-primary">Calculate Required Marks</button>
+          </div>
+
+          <div class="result" id="grade-result"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- CGPA Calculator -->
+    <div id="cgpa-calculator" class="tab-content">
+      <div class="card">
+        <h2>CGPA Calculator</h2>
+        
+        <form id="cgpa-form">
+          <div id="semesters-container"></div>
+          
+          <div class="buttons">
+            <button type="button" id="add-semester-btn" class="btn btn-secondary">+ Add Semester</button>
+            <button type="button" onclick="calculateCGPA()" class="btn btn-primary">Calculate CGPA</button>
+          </div>
+          
+          <div class="result" id="cgpa-result"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+    <footer>
+      <div class="footer-content">
+        <p>© 2025 SRM Academic Calculator</p>
+        <p>Developed by 
+          <strong>
+            <a href="https://www.linkedin.com/in/sreeramsp/" target="_blank" class="developer-link">Sreeram Palani</a>
+          </strong>
+        </p>
+            <p>Made with ❤️ for Students</p>
+        <p class="disclaimer">Note: This is an unofficial tool created for student convenience and educational use only.(2021 Regulation)</p>
+      </div>
+    </footer>
+    
+    <script src=script.js></script>
+</body>
+</html>
+<body oncontextmenu="return false">
